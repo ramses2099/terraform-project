@@ -44,24 +44,5 @@ resource "google_compute_instance" "srv-ct-01" {
     scopes = ["https://www.googleapis.com/auth/devstorage.read_only", "https://www.googleapis.com/auth/logging.write", "https://www.googleapis.com/auth/monitoring.write", "https://www.googleapis.com/auth/service.management.readonly", "https://www.googleapis.com/auth/servicecontrol", "https://www.googleapis.com/auth/trace.append"]
   }
   tags = []
-  zone = "us-central1-f"
-}
-
-module "ops_agent_policy" {
-  source          = "github.com/terraform-google-modules/terraform-google-cloud-operations/modules/ops-agent-policy"
-  project         = "devops-project-513623"
-  zone            = "us-central1-f"
-  assignment_id   = "goog-ops-agent-v2-template-1-7-0-us-central1-f"
-  agents_rule = {
-    package_state = "installed"
-    version = "latest"
-  }
-  instance_filter = {
-    all = false
-    inclusion_labels = [{
-      labels = {
-        goog-ops-agent-policy = "v2-template-1-7-0"
-      }
-    }]
-  }
+  zone = "us-central1-c"
 }
