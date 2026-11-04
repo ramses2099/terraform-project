@@ -16,7 +16,12 @@ provider "google" {
 
 resource "google_compute_instance" "srv-ct-01" {
   boot_disk {
-    device_name = "srv-ct-01"    
+    device_name = "srv-ct-01"   
+    initialize_params {
+      image = "debian-cloud/debian-12"
+      size  = 20
+      type  = "pd-balanced"
+    }
   }
   confidential_instance_config {
     enable_confidential_compute = false
