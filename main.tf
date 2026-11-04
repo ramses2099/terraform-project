@@ -22,9 +22,6 @@ resource "google_compute_instance" "srv-ct-01" {
     enable_confidential_compute = false
   }
   description = ""
-  instance_encryption_key {
-  }
-  key_revocation_action_type = "NONE"
   machine_type               = "e2-medium"
   name                       = "srv-ct-01"
   network_interface {
