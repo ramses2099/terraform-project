@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Social Media Page</title>
+
+    <!-- Font Awesome CDN for Icons -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .card h1 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #eef2f5;
+            color: #555;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover Effects with Brand Colors */
+        .social-icon.facebook:hover { background-color: #1877f2; color: #fff; }
+        .social-icon.twitter:hover { background-color: #000000; color: #fff; }
+        .social-icon.instagram:hover { background-color: #e4405f; color: #fff; }
+        .social-icon.linkedin:hover { background-color: #0a66c2; color: #fff; }
+        .social-icon.github:hover { background-color: #333333; color: #fff; }
+        .social-icon.youtube:hover { background-color: #ff0000; color: #fff; }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <main class="card">
+        <h1>Welcome to My Website</h1>
+        <p>
+            This is an example test page featuring styled social media icons. 
+            Feel free to update the links and customize the styles to fit your project.
+        </p>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon facebook" title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon twitter" title="X / Twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon instagram" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon linkedin" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon github" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon youtube" title="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+        </div>
+    </main>
+
+</body>
+</html>

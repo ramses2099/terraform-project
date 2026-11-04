@@ -1,0 +1,49 @@
+# Bucket to store website
+
+resource "google_storage_bucket" "website" {
+    name = "example-web-gcp"
+    location = "US"  
+}
+
+# Make new Object public
+resource "google_storage_object_access_control" "public_rule" {
+  object =  google_storage_bucket_object.static_site_src.name
+  bucket = google_storage_bucket.website.name
+  role = "READER"
+  entity = "allUsers"
+}
+
+
+# Upload the html file to the bucket
+resource "google_storage_bucket_object" "static_site_src" {
+  name = "index.html"
+  source = "../website/index.html"
+  bucket = google_storage_bucket.website.name
+}
+
+# Reverse a static external IP address
+resource "google_compute_global_address" "website_ip" {
+  name = "website-lb-ip"
+}
+
+# Get the managed DNS Zone
+data "google_dns_managed_zone" "dns_zone"{
+    name = "ramse-example"
+}
+
+# Add the IP to the DNS
+resource "google_dns_record_set" "website" {
+  name = "website.${data.google_dns_managed_zone.dns_zone.name}"
+  type="A"
+  ttl = 300
+  managed_zone = data.google_dns_managed_zone.dns_zone.name
+  rrdatas = [ google_compute_global_address.website_ip.address ]
+}
+
+# Add the bucket as a CDN backed
+resource "google_compute_backend_bucket" "website-backed" {
+    name="website-bucket"
+    bucket_name = google_storage_bucket.website.name
+    description = "Containes files needed for the website"
+    enable_cdn = true
+}
