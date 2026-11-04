@@ -18,8 +18,8 @@ resource "google_compute_instance" "srv-ct-01" {
   boot_disk {
     device_name = "srv-ct-01"   
     initialize_params {
-      image = "debian-cloud/debian-12"
-      size  = 20
+      image = "debian-cloud/debian-13-trixie-v20261027"
+      size  = 30
       type  = "pd-balanced"
     }
   }
